@@ -3,6 +3,18 @@ import emailjs from '@emailjs/browser';
 import NavBar from '../components/NavBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import Loading from '../components/Loading';
+import Footer from '../components/Footer'
+import GoogleMapReact from 'google-map-react';
+
+const Marker = (props) => {
+  const { color, name, id } = props;
+  return (
+    <div className="marker"
+      style={{ backgroundColor: color, cursor: 'pointer'}}
+      title={name}
+    />
+  );
+};
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -14,7 +26,7 @@ const Contact = () => {
     e.preventDefault();
     setSending(true)
 
-    emailjs.sendForm('service_vzvcsfl', 'template_pilfv0', form.current, '1SGT83ZbyCEXz3KAZ')
+    emailjs.sendForm('service_vzvcsfl', 'template_pilfv0h', form.current, '1SGT83ZbyCEXz3KAZ')
       .then((result) => {
           console.log(result.text);
           setSending(false);
@@ -25,6 +37,13 @@ const Contact = () => {
           setMessage("It looks like there was an error with sending your message, please email us directly")
       });
   };
+
+  const center = {
+    address: "14 Sandy Hill, Saint Austell PL25 3AT, United Kingdom",
+    lat: 50.34208694625555,
+    lng: -4.772953701845362
+  }
+  const zoom = 18;
 
   return (
     <div className='main-container'>
@@ -38,6 +57,7 @@ const Contact = () => {
             <Row>
               <Col md={6}>
                 <form ref={form} onSubmit={sendEmail}>
+                  <h2>Message us</h2>
                   <label>Name</label>
                   <input type="text" name="user_name" />
                   <label>Email</label>
@@ -56,19 +76,37 @@ const Contact = () => {
                 </form>
               </Col>
               <Col md={6}>
+                <div className='address'>
                   <h2>Where to find us</h2>
-                  <div className='address'>
-                    <p>Sandy Hill Physio</p>
-                    <p>14 Sandy Hill</p>
-                    <p>St Austell</p>
-                    <p>PL25 3AT</p>
+                  
+                  <p>Sandy Hill Physio</p>
+                  <p>14 Sandy Hill</p>
+                  <p>St Austell</p>
+                  <p>PL25 3AT</p>
+                  <br/>
+                  <div style={{ height: '400px', width: '100%' }}>
 
+                    <GoogleMapReact
+                      bootstrapURLKeys={{ key: "AIzaSyCl4sjXh_chPd5qt_6-Sp5Hz7QILghSBXA"}}
+                      defaultCenter={center}
+                      defaultZoom={zoom}
+                      yesIWantToUseGoogleMapApiInternals
+                    >
+                      <Marker
+                        lat={50.34210261106983}
+                        lng={-4.772957144028957}
+                        name="Sandy Hill Physio"
+                        color="white"
+                      />
+                    </GoogleMapReact>
                   </div>
+                </div>
               </Col>
             </Row>
           </Container>
         </div>
       </section>
+      <Footer />
     </div>
 
 
