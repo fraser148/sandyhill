@@ -15,8 +15,15 @@ const Footer = () => {
                         <Col md={3}>
                             <div className="footer-widget">
                                 <h3>Sandy Hill Physiotherapy</h3>
-                                <a href="tel:0172667567">01726 67567</a>
-                                <a href="mailto:helpme@sandyhillphysio.co.uk">helpme@sandyhillphysio.co.uk</a>
+                                <span>
+                                Sandy Hill Physio<br/>
+                                14 Sandy Hill<br/>
+                                St Austell<br/>
+                                PL25 3AT
+                                </span>
+                                <span className="contact-deets"><a href="tel:0172667567">01726 67567</a></span>
+                                <span className="contact-deets"><a href="mailto:helpme@sandyhillphysio.co.uk">helpme@sandyhillphysio.co.uk</a></span>
+
                             </div>
                         </Col>
                         <Col md={3}>
@@ -24,8 +31,8 @@ const Footer = () => {
                                 <h4>Useful Links</h4>
                                 <ul>
                                     <li>Book Appointment</li>
-                                    <li>Privacy Policy</li>
-                                    <li>Contact Us</li>
+                                    <Link to={"/privacy-policy"}><li>Privacy Policy</li></Link>
+                                    <Link to={"/contact"}><li>Contact Us</li></Link>
                                 </ul>
                             </div>
                         </Col>

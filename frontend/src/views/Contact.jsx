@@ -63,11 +63,11 @@ const Contact = () => {
                 <form ref={form} onSubmit={sendEmail}>
                   <h2>Message us</h2>
                   <label>Name</label>
-                  <input type="text" name="user_name" />
+                  <input type="text" name="user_name" required/>
                   <label>Email</label>
-                  <input type="email" name="user_email" />
+                  <input type="email" name="user_email" required />
                   <label>Subject</label>
-                  <select type="text" name="user_subject" defaultValue={service}>
+                  <select type="text" name="user_subject" defaultValue={service} required>
                     <option value="">-- Select an Option --</option>
                     <option value="physiotherapy">Physiotherapy</option>
                     <option value="acupuncture">Acupuncture</option>
@@ -77,7 +77,7 @@ const Contact = () => {
                     <option value="other">Other</option>
                   </select>
                   <label>Message</label>
-                  <textarea name="message" />
+                  <textarea name="message" required/>
                   <input type="submit" value="Send" />
                   {sending &&
                     <Loading />

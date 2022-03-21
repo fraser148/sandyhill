@@ -5,6 +5,7 @@ import Home from './Home';
 import Pricing from './Pricing';
 import Contact from './Contact';
 import Services from './Services';
+import PrivacyPolicy from './PrivacyPolicy';
 import ScrollToTop from '../components/ScrollToTop';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="" element={<Contact />} />
           </Route>
           <Route path="/services" element={<Services />}/>
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
         </Routes>
       </ScrollToTop>
   );  

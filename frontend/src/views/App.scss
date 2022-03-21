@@ -206,6 +206,13 @@ html {
       color: #222;
     }
 
+    span.contact-deets {
+      display: block;
+      a {
+        display: inline;
+      }
+    }
+
     table {
       td {
         padding-right: 4px;
@@ -451,3 +458,17 @@ html {
 }
 
 
+.privacy-policy {
+  h3 {
+    font-family: $main-font;
+    margin-top: 50px;
+  }
+
+  p {
+    font-family: $main-font;
+  }
+
+  a {
+    color: #222;  
+  }
+}
