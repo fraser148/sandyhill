@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Container, Row, Col} from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
 
 const Footer = () => {
     const year = new Date().getFullYear();
@@ -32,11 +33,11 @@ const Footer = () => {
                         <div className="footer-widget">
                                 <h4>Services</h4>
                                 <ul>
-                                    <Link to="/services/physiotherapy"><li>Physiotherapy</li></Link>
-                                    <Link to="/services/acupuncture"><li>Acupuncture</li></Link>
-                                    <Link to="/services/massage"><li>Massage</li></Link>
-                                    <Link to="/services/pilates"><li>Pilates</li></Link>
-                                    <Link to="/services/yoga"><li>Yoga</li></Link>
+                                    <HashLink to="/services#physiotherapy"><li>Physiotherapy</li></HashLink>
+                                    <HashLink to="/services#acupuncture"><li>Acupuncture</li></HashLink>
+                                    <HashLink to="/services#massage"><li>Massage</li></HashLink>
+                                    <HashLink to="/services#pilates"><li>Pilates</li></HashLink>
+                                    <HashLink to="/services#yoga"><li>Yoga</li></HashLink>
                                 </ul>
                             </div>
                         </Col>

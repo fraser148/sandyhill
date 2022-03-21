@@ -19,7 +19,7 @@ const Services = () => {
                     
 
                 </div>
-                <section className="reviews">
+                <section className="reviews" id="physiotherapy">
                     <div className="main">
 
                     <Container>
@@ -52,7 +52,7 @@ const Services = () => {
                     </Container>
                     </div>
                 </section>
-                <section className="reviews">
+                <section className="reviews" id="acupuncture">
                     <div className="main">
 
                     <Container>
@@ -82,7 +82,7 @@ const Services = () => {
                     </Container>
                     </div>
                 </section>
-                <section className="reviews">
+                <section className="reviews" id="massage">
                     <div className="main">
 
                     <Container>
@@ -106,7 +106,7 @@ const Services = () => {
                     </Container>
                     </div>
                 </section>
-                <section className="reviews">
+                <section className="reviews" id="pilates">
                     <div className="main">
 
                     <Container>
@@ -135,7 +135,7 @@ const Services = () => {
                     </Container>
                     </div>
                 </section>
-                <section className="reviews">
+                <section className="reviews" id="yoga">
                     <div className="main">
 
                     <Container>
