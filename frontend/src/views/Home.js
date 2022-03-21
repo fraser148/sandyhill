@@ -25,7 +25,7 @@ const Home = () => {
                                         <img src="yoga.png" alt="step"/>
                                         <h4>Yoga</h4>
                                         <p>
-                                            At Human Compass, we believe that every human has the potential to expand the quality of their lives
+                                            At Human Compass, we believe that every human has the potential to expand the quality of their lives.
                                         </p>
                                     </div>
                                 </Col>
@@ -43,7 +43,7 @@ const Home = () => {
                                         <img src="massage.png" alt="step"/>
                                         <h4>Massage</h4>
                                         <p>
-                                            Massage can be dynamic and very active or gentle and destressing so can help in a wide variety of conditions 
+                                            Massage can be dynamic and very active or gentle and destressing so can help in a wide variety of conditions.
                                         </p>
                                     </div>
                                 </Col>

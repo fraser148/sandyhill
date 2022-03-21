@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 import NavBar from '../components/NavBar';
 import PricesAlter from '../components/PricesAlter';
 import { services } from '../services/pricing.js';
@@ -18,6 +19,7 @@ const Pricing = () => {
                     <PricesAlter data={services}/>
                 </div>
             </section>
+            <Footer />
         </div>
     )
 }

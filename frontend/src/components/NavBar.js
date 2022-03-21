@@ -6,13 +6,13 @@ const NavBar = () => {
         <div className="navbar">
             <div className="inner-navbar">
 
-                <img src="logo_rect@transHD.png" alt="Sandy Hill Physio Logo"/>
+                <Link to={"/"}><img src="/logo_rect@transHD.png" alt="Sandy Hill Physio Logo"/></Link>
                 <div className="links">
                     <ul>
                         <Link to={"/"}><li>Home</li></Link>
                         <Link to={"/pricing"}><li>Pricing</li></Link>
                         <Link to={"/contact"}><li>Contact Us</li></Link>
-                        <li>Services</li>
+                        <Link to={"/services"}><li>Services</li></Link>
                         <li>Online Physiotherapy</li>
                         <li>Registration Form</li>
                         <li>Testimonials</li>

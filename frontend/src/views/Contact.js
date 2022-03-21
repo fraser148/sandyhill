@@ -5,9 +5,10 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Loading from '../components/Loading';
 import Footer from '../components/Footer'
 import GoogleMapReact from 'google-map-react';
+import { useParams } from 'react-router-dom';
 
 const Marker = (props) => {
-  const { color, name, id } = props;
+  const { color, name } = props;
   return (
     <div className="marker"
       style={{ backgroundColor: color, cursor: 'pointer'}}
@@ -19,6 +20,7 @@ const Marker = (props) => {
 const Contact = () => {
   const [sending, setSending] = useState(false);
   const [message, setMessage] = useState("");
+  const {service} = useParams();
 
   const form = useRef();
 
@@ -48,8 +50,10 @@ const Contact = () => {
   return (
     <div className='main-container'>
       <NavBar />
-      <section className='common-header'>
-        <h1>Contact Us</h1>
+      <section className="common-header">
+        <div className="inner-header">
+            <h1>Contact Us</h1>
+        </div>
       </section>
       <section className="contact-form">
         <div className='main'>
@@ -62,6 +66,16 @@ const Contact = () => {
                   <input type="text" name="user_name" />
                   <label>Email</label>
                   <input type="email" name="user_email" />
+                  <label>Subject</label>
+                  <select type="text" name="user_subject" defaultValue={service}>
+                    <option value="">-- Select an Option --</option>
+                    <option value="physiotherapy">Physiotherapy</option>
+                    <option value="acupuncture">Acupuncture</option>
+                    <option value="massage">Massage</option>
+                    <option value="pilates">Pilates</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="other">Other</option>
+                  </select>
                   <label>Message</label>
                   <textarea name="message" />
                   <input type="submit" value="Send" />
@@ -83,23 +97,23 @@ const Contact = () => {
                   <p>14 Sandy Hill</p>
                   <p>St Austell</p>
                   <p>PL25 3AT</p>
-                  <br/>
-                  <div style={{ height: '400px', width: '100%' }}>
 
-                    <GoogleMapReact
-                      bootstrapURLKeys={{ key: "AIzaSyCl4sjXh_chPd5qt_6-Sp5Hz7QILghSBXA"}}
-                      defaultCenter={center}
-                      defaultZoom={zoom}
-                      yesIWantToUseGoogleMapApiInternals
-                    >
-                      <Marker
-                        lat={50.34210261106983}
-                        lng={-4.772957144028957}
-                        name="Sandy Hill Physio"
-                        color="white"
-                      />
-                    </GoogleMapReact>
-                  </div>
+                </div>
+                <div style={{ height: '400px', width: '100%' }}>
+
+                <GoogleMapReact
+                  bootstrapURLKeys={{ key: "AIzaSyCl4sjXh_chPd5qt_6-Sp5Hz7QILghSBXA"}}
+                  defaultCenter={center}
+                  defaultZoom={zoom}
+                  yesIWantToUseGoogleMapApiInternals
+                >
+                  <Marker
+                    lat={50.34210261106983}
+                    lng={-4.772957144028957}
+                    name="Sandy Hill Physio"
+                    color="white"
+                  />
+                </GoogleMapReact>
                 </div>
               </Col>
             </Row>

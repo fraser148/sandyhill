@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col} from 'react-bootstrap';
 
 const Footer = () => {
@@ -31,11 +32,11 @@ const Footer = () => {
                         <div className="footer-widget">
                                 <h4>Services</h4>
                                 <ul>
-                                    <li>Physiotherapy</li>
-                                    <li>Acupuncture</li>
-                                    <li>Massage</li>
-                                    <li>Pilates</li>
-                                    <li>Yoga</li>
+                                    <Link to="/services/physiotherapy"><li>Physiotherapy</li></Link>
+                                    <Link to="/services/acupuncture"><li>Acupuncture</li></Link>
+                                    <Link to="/services/massage"><li>Massage</li></Link>
+                                    <Link to="/services/pilates"><li>Pilates</li></Link>
+                                    <Link to="/services/yoga"><li>Yoga</li></Link>
                                 </ul>
                             </div>
                         </Col>
