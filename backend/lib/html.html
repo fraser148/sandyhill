@@ -1,0 +1,221 @@
+<html>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,200;0,400;0,600;1,400&display=swap');
+        body {
+            font-family: 'Archivo', sans-serif;
+        }
+
+        html {
+            -webkit-print-color-adjust: exact;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .personal-details {
+            display:block;
+            border-radius: 5px;
+            background-color: #8bd09d;
+            /*background-color: #8bd09d;*/
+            padding: 30px;
+        }
+
+        .personal-details h3,
+        .personal-details p,
+        .personal-details pre {
+            font-size: 16px;
+            margin: 0;
+            font-family: 'Archivo', sans-serif;
+        }
+
+        .wrapper {
+            display: block;
+        }
+
+        .wrapper h2 {
+            margin:0;
+        }
+
+        .wrapper div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .health-data table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .health-data table td{
+            border: 1px solid black;
+            padding: 3px 8px;
+        }
+
+        .point {
+            font-weight: 600;
+        }
+
+        .info .point {
+            padding-right: 20px;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color:#222
+        }
+
+        .info {
+            margin-top: 20px;
+        }
+    </style>
+    <head>
+      <title>Test PDF</title>
+    </head>
+    <body style="margin: 50px;">
+        <div class="header">
+            
+            <h1>Sandy Hill Physio</h1>
+            <span>{{DATE}}</span>
+        </div>
+        <div class="personal-details">
+            <div class="wrapper">       
+                <h2>Patient Details</h2>
+                <hr/>
+                <div style="width:49%">
+                    <h3>Full Name</h3>
+                    <p>{{FULL_NAME}}</p>
+                    <br/>
+                    <h3>Address</h3>
+                    <pre>
+69 Corrour Road
+Newlands
+Glasgow
+                    </pre>
+                    <h3>Postcode</h3>
+                    <p>G43 2ED</p>
+                </div>
+                <div style="width:50%">
+                    <h3>Date of Birth</h3>
+                    <p>09/06/2001</p>
+                    <br/>
+                    <h3>Sex</h3>
+                    <p>Male</p>
+                    <br/>
+                    <h3>Occupation</h3>
+                    <p>Software Developer</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <div class="wrapper">
+                <div style="width: 50%">
+                    <table class="info">
+                        <tbody>
+                            <tr>
+                                <td class="point">Full Name</td>
+                                <td class="status">Fraser Rennie</td>
+                            </tr>
+                            <tr>
+                                <td class="point">Email Address</td>
+                                <td class="status"><a href="mailto:fjrennie1@outlook.com">fjrennie1@outlook.com</a></td>
+                            </tr>
+                            <tr>
+                                <td class="point">Phone Number</td>
+                                <td class="status">0751 431 0679</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <div style="width: 49%">
+                    <table class="info">
+                        <tbody>
+                            <tr>
+                                <td class="point">GP Name</td>
+                                <td class="status">Ged Gilchrist</td>
+                            </tr>
+                            <tr>
+                                <td class="point">GP Surgery</td>
+                                <td class="status">Sandy Hill GP</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="health-data">
+            <h3>Current Problems</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto pariatur laborum quos magni maxime delectus rem sed totam perspiciatis vitae quidem eveniet, dolorem harum dolor fuga culpa placeat similique. Illo.
+            </p>
+            <div class="wrapper">
+                <div style="width:100%">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="point">Duration of current problem</td>
+                                <td class="status">More than 12 weeks</td>
+                            </tr>
+                            <tr>
+                                <td class="point">How is your problem progressing?</td>
+                                <td class="status">Getting worse</td>
+                            </tr>
+                            <tr>
+                                <td class="point">If in pain, how would you describe it?</td>
+                                <td class="status">Mild</td>
+                            </tr>
+                            <tr>
+                                <td class="point">Is your pain constant (present all the time)?</td>
+                                <td class="status">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="point">Is pain disturbing your sleep?</td>
+                                <td class="status">Yes, difficulty getting to sleep</td>
+                            </tr>
+                            <tr>
+                                <td class="point">Are you off work because of this problem?</td>
+                                <td class="status">No</td>
+                            </tr>
+                            <tr>
+                                <td class="point">If yes, how long</td>
+                                <td class="status">-</td>
+                            </tr>
+                            <tr>
+                                <td class="point">Are you taking medication?</td>
+                                <td class="status">Yes, paracetamol</td>
+                            </tr>
+                            <tr>
+                                <td class="point">Have you had this problem before?</td>
+                                <td class="status">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="point">If so, how long ago?</td>
+                                <td class="status">3 months ago</td>
+                            </tr>
+                            <tr>
+                                <td class="point">If so, have you had any other therapy for this problem?</td>
+                                <td class="status">Yes</td>
+                            </tr>
+                            <tr>
+                                <td class="point">If yes, what treatment have you received?</td>
+                                <td class="status">Excercises</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+
+        </div>
+    </body>
+  </html>
