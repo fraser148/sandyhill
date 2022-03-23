@@ -25,6 +25,10 @@ html {
   max-width: 100%;
 }
 
+.main.form {
+  width: 800px;
+}
+
 .navbar {
   font-family: $main-font;
   font-weight: 200;
@@ -470,5 +474,69 @@ html {
 
   a {
     color: #222;  
+  }
+}
+
+
+.register-form {
+  form {
+    font-family: $main-font;
+    input, label, select, textarea {
+      display: block;
+      width: 100%;
+    }
+
+    label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input, select, textarea {
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid rgb(160, 160, 160);
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      
+    }
+
+    select {
+      border:1px solid #ccc;
+      vertical-align:top;
+      height: 30px;
+      }
+    input, select{
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+    }
+
+    .error {
+      display: block;
+      color: red;
+    }
+
+    .checker {
+      input[type="checkbox"] {
+        display: inline;
+        margin-right: 10px;
+        font-size: 16px;
+        width: 20px;
+    }
+    }
+
+    .radios {
+
+      label {
+        display: block;
+        margin: 3px;
+      }
+
+      input[type="radio"] {
+          display: inline;
+          margin-right: 10px;
+          font-size: 16px;
+          width: 20px;
+      }
+    }
   }
 }

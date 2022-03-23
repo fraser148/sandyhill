@@ -1,24 +1,35 @@
 import express from "express";
 import generatePDF from "./lib/generatePDF.js";
-import path from 'path';
-import {fileURLToPath} from 'url';
+import cors from 'cors';
+import bodyParser from 'body-parser';
 
 const app = express();
-const port = 3030;
-const __filename = fileURLToPath(import.meta.url);
+const port = 8080;
 
-// 👇️ "/home/john/Desktop/javascript"
-const __dirname = path.dirname(__filename);
-app.use('/lib', express.static(path.join(__dirname, '/images')))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
-app.get('/', async function(req, res) {
-    const pdf = await generatePDF();
+app.get('/', function(req, res) {
+    res.send("Hello there, this is the home page")
+});
 
-    res.set("Content-Type", "application/pdf");
-    res.send(pdf);
+app.post('/generate-patient-summary', async function(req, res) {
+    console.log(req.body)
+    generatePDF(req.body)
+    .then(pdf => {
+        res.set("Content-Type", "application/pdf");
+        res.send(pdf);
+    })
+    .catch(err => {
+        console.error(err)
+    })
+    
 })
 
 app.listen(port, function() {
-    console.log(`Example app listening on port ${port}!`)
+    console.log(`API listening on port ${port}`)
 });

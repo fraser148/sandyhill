@@ -91,26 +91,25 @@
                 <hr/>
                 <div style="width:49%">
                     <h3>Full Name</h3>
-                    <p>{{FULL_NAME}}</p>
+                    <p>{{firstName}} {{lastName}}</p>
                     <br/>
                     <h3>Address</h3>
                     <pre>
-69 Corrour Road
-Newlands
-Glasgow
+{{address1}}
+{{address2}}
                     </pre>
                     <h3>Postcode</h3>
-                    <p>G43 2ED</p>
+                    <p>{{postcode}}</p>
                 </div>
                 <div style="width:50%">
                     <h3>Date of Birth</h3>
-                    <p>09/06/2001</p>
+                    <p>{{dob}}</p>
                     <br/>
                     <h3>Sex</h3>
-                    <p>Male</p>
+                    <p>{{sex}}</p>
                     <br/>
                     <h3>Occupation</h3>
-                    <p>Software Developer</p>
+                    <p>{{occupation}}</p>
 
                 </div>
             </div>
@@ -122,15 +121,15 @@ Glasgow
                         <tbody>
                             <tr>
                                 <td class="point">Full Name</td>
-                                <td class="status">Fraser Rennie</td>
+                                <td class="status">{{firstName}} {{lastName}}</td>
                             </tr>
                             <tr>
                                 <td class="point">Email Address</td>
-                                <td class="status"><a href="mailto:fjrennie1@outlook.com">fjrennie1@outlook.com</a></td>
+                                <td class="status"><a href="mailto:{{email}}">{{email}}</a></td>
                             </tr>
                             <tr>
                                 <td class="point">Phone Number</td>
-                                <td class="status">0751 431 0679</td>
+                                <td class="status">{{phone}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -142,11 +141,11 @@ Glasgow
                         <tbody>
                             <tr>
                                 <td class="point">GP Name</td>
-                                <td class="status">Ged Gilchrist</td>
+                                <td class="status">{{gp_name}}</td>
                             </tr>
                             <tr>
                                 <td class="point">GP Surgery</td>
-                                <td class="status">Sandy Hill GP</td>
+                                <td class="status">{{gp_surgery}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -156,7 +155,7 @@ Glasgow
         <div class="health-data">
             <h3>Current Problems</h3>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto pariatur laborum quos magni maxime delectus rem sed totam perspiciatis vitae quidem eveniet, dolorem harum dolor fuga culpa placeat similique. Illo.
+                {{symptoms}}
             </p>
             <div class="wrapper">
                 <div style="width:100%">
@@ -164,19 +163,19 @@ Glasgow
                         <tbody>
                             <tr>
                                 <td class="point">Duration of current problem</td>
-                                <td class="status">More than 12 weeks</td>
+                                <td class="status">{{symptoms_time}}</td>
                             </tr>
                             <tr>
                                 <td class="point">How is your problem progressing?</td>
-                                <td class="status">Getting worse</td>
+                                <td class="status">{{progression}}</td>
                             </tr>
                             <tr>
                                 <td class="point">If in pain, how would you describe it?</td>
-                                <td class="status">Mild</td>
+                                <td class="status">{{pain}}</td>
                             </tr>
                             <tr>
                                 <td class="point">Is your pain constant (present all the time)?</td>
-                                <td class="status">Yes</td>
+                                <td class="status">{{pain_constant}}</td>
                             </tr>
                             <tr>
                                 <td class="point">Is pain disturbing your sleep?</td>
@@ -184,31 +183,31 @@ Glasgow
                             </tr>
                             <tr>
                                 <td class="point">Are you off work because of this problem?</td>
-                                <td class="status">No</td>
+                                <td class="status">{{pain_sleep}}</td>
                             </tr>
                             <tr>
                                 <td class="point">If yes, how long</td>
-                                <td class="status">-</td>
+                                <td class="status">{{off_work_time}}</td>
                             </tr>
                             <tr>
                                 <td class="point">Are you taking medication?</td>
-                                <td class="status">Yes, paracetamol</td>
+                                <td class="status">{{medication}}, {{medication_type}}</td>
                             </tr>
                             <tr>
                                 <td class="point">Have you had this problem before?</td>
-                                <td class="status">Yes</td>
+                                <td class="status">{{recurring}}</td>
                             </tr>
                             <tr>
                                 <td class="point">If so, how long ago?</td>
-                                <td class="status">3 months ago</td>
+                                <td class="status">{{recurring_time}}</td>
                             </tr>
                             <tr>
                                 <td class="point">If so, have you had any other therapy for this problem?</td>
-                                <td class="status">Yes</td>
+                                <td class="status">{{recurring_therapy}}</td>
                             </tr>
                             <tr>
                                 <td class="point">If yes, what treatment have you received?</td>
-                                <td class="status">Excercises</td>
+                                <td class="status">{{recurring_therapy_type}}</td>
                             </tr>
                         </tbody>
                     </table>

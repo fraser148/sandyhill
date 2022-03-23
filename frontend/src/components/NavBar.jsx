@@ -14,7 +14,7 @@ const NavBar = () => {
                         <Link to={"/contact"}><li>Contact Us</li></Link>
                         <Link to={"/services"}><li>Services</li></Link>
                         <li>Online Physiotherapy</li>
-                        <li>Registration Form</li>
+                        <Link to={"/register"}><li>Registration Form</li></Link>
                         <li>Testimonials</li>
                     </ul>
                 </div>

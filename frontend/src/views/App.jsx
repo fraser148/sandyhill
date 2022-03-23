@@ -7,6 +7,7 @@ import Contact from './Contact';
 import Services from './Services';
 import PrivacyPolicy from './PrivacyPolicy';
 import ScrollToTop from '../components/ScrollToTop';
+import Registration from './Registration';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           </Route>
           <Route path="/services" element={<Services />}/>
           <Route path="/privacy-policy" element={<PrivacyPolicy/>}/>
+          <Route path="/register" element={<Registration/>}/>
         </Routes>
       </ScrollToTop>
   );  
