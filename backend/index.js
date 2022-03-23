@@ -18,7 +18,6 @@ app.get('/', function(req, res) {
 });
 
 app.post('/generate-patient-summary', async function(req, res) {
-    console.log(req.body)
     generatePDF(req.body)
     .then(pdf => {
         res.set("Content-Type", "application/pdf");
