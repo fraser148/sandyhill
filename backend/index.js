@@ -10,22 +10,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://623dac7353957f0008b22491--heuristic-wright-33c6aa.netlify.app'
 }));
 
-var whitelist = ['http://localhost:3000', 'http://example2.com']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
-
 app.get('/', function(req, res) {
-    res.send("Hello there, this is the home page")
+    res.send("Hello there, this is the home page, now with the new test!!")
 });
 
 app.post('/generate-patient-summary', async function(req, res) {
