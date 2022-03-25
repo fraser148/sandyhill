@@ -14,7 +14,7 @@ app.use(cors({
 }));
 
 app.get('/', function(req, res) {
-    res.send("Hello there, this is the home page, now with the new test!!")
+    res.send("Hello there, this is the home page, now with the new test!! can you work")
 });
 
 app.post('/generate-patient-summary', async function(req, res) {
