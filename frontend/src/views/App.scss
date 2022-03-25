@@ -184,6 +184,11 @@ html {
       font-family: $main-font;
       font-weight: 200;;
     }
+
+    &.greyed {
+      background-color: rgb(128, 128, 128);
+      color:white;
+    }
   }
 
 }

@@ -10,7 +10,7 @@ export default function Registration() {
     const onSubmit = async (data) => {
         console.log(data);
 
-        axios.post("http://localhost:8080/generate-patient-summary",
+        axios.post("https://sandy-hill-physio.nw.r.appspot.com/generate-patient-summary",
         data,
         {
             responseType: 'arraybuffer',

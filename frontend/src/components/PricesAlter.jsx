@@ -35,7 +35,7 @@ const PricesAlter = (data) => {
                     </Col>
                     <Col md={8}>
                         <div className="prices">
-                            <h2>Pricing</h2>
+                            <h2>{data.data[selected].name}</h2>
                             <table>
                                 <tbody>
                                     {data.data[selected].prices.map((price) => 
