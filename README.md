@@ -1,2 +1,10 @@
 # Sandy Hill Physio Website
-React Code
+Contains the frontend and backend for Sandy Hill Physio.
+
+Deals with a simple React app deployed with Netlify
+
+### GCP Deploy
+
+```
+gcloud app deploy
+```

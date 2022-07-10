@@ -108,6 +108,8 @@ export default async (data) => {
     } else {
         content = content.replace('{{recurring_time}}', "-");
         content = content.replace('{{recurring}}', 'No');
+        content = content.replace('{{recurring_therapy}}', "No");
+        content = content.replace('{{recurring_therapy_type}}', "-");
     }
 
     const browser = await puppeteer.launch({ headless: true })

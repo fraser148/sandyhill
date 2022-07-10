@@ -131,7 +131,11 @@ html {
 }
 
 .reviews {
-
+  a {
+    text-decoration: none;
+    font-weight: 400;
+    color: black;
+  }
   margin-bottom: 100px;;
 
   .content {
@@ -543,5 +547,43 @@ html {
           width: 20px;
       }
     }
+
+    button {
+      background-color: #84C495; /* Green */
+      border: none;
+      color: white;
+      padding: 12px 32px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 16px;
+      border-radius: 10px;
+    }
   }
+}
+
+.submitter {
+  display: flex;
+  margin:20px 0px;
+}
+
+.spinner-container {
+  padding:10px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 6px solid #f3f3f3; /* Light grey */
+  border-top: 6px solid #383636; /* Black */
+  border-radius: 50%;
+  animation: spinner 1.5s linear infinite;
 }

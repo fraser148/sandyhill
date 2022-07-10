@@ -4,18 +4,18 @@ import NavBar from '../components/NavBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import Loading from '../components/Loading';
 import Footer from '../components/Footer'
-import GoogleMapReact from 'google-map-react';
+// import GoogleMapReact from 'google-map-react';
 import { useParams } from 'react-router-dom';
 
-const Marker = (props) => {
-  const { color, name } = props;
-  return (
-    <div className="marker"
-      style={{ backgroundColor: color, cursor: 'pointer'}}
-      title={name}
-    />
-  );
-};
+// const Marker = (props) => {
+//   const { color, name } = props;
+//   return (
+//     <div className="marker"
+//       style={{ backgroundColor: color, cursor: 'pointer'}}
+//       title={name}
+//     />
+//   );
+// };
 
 const Contact = () => {
   const [sending, setSending] = useState(false);
@@ -40,12 +40,12 @@ const Contact = () => {
       });
   };
 
-  const center = {
-    address: "14 Sandy Hill, Saint Austell PL25 3AT, United Kingdom",
-    lat: 50.34208694625555,
-    lng: -4.772953701845362
-  }
-  const zoom = 18;
+  // const center = {
+  //   address: "14 Sandy Hill, Saint Austell PL25 3AT, United Kingdom",
+  //   lat: 50.34208694625555,
+  //   lng: -4.772953701845362
+  // }
+  // const zoom = 18;
 
   return (
     <div className='main-container'>
@@ -99,9 +99,10 @@ const Contact = () => {
                   <p>PL25 3AT</p>
 
                 </div>
-                <div style={{ height: '400px', width: '100%' }}>
+                {/* <div style={{ height: '400px', width: '100%' }}> */}
+                <div>
 
-                <GoogleMapReact
+                {/* <GoogleMapReact
                   bootstrapURLKeys={{ key: "AIzaSyCl4sjXh_chPd5qt_6-Sp5Hz7QILghSBXA"}}
                   defaultCenter={center}
                   defaultZoom={zoom}
@@ -113,7 +114,9 @@ const Contact = () => {
                     name="Sandy Hill Physio"
                     color="white"
                   />
-                </GoogleMapReact>
+                </GoogleMapReact> */}
+
+                  <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2546.3091881958726!2d-4.775067284410087!3d50.34213827946058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x486b6f2861ee8aa5%3A0x7636d0488f3a8d1b!2sSandy%20Hill%20Physio%20Ltd!5e0!3m2!1sen!2suk!4v1657462256538!5m2!1sen!2suk" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"/>
                 </div>
               </Col>
             </Row>

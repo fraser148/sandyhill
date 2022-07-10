@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm  } from "react-hook-form";
 import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import { Container, Col, Row } from 'react-bootstrap';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const LoadingSpinner = () => {
+    return (
+      <div className="spinner-container">
+        <div className="loading-spinner">
+        </div>
+      </div>
+    );
+  }
 
 export default function Registration() {
-    const { register, watch, formState:{ errors }, handleSubmit } = useForm();
+    const [loading, setLoading] = useState(false);
+
+    const { register, watch, formState:{ errors }, handleSubmit, reset } = useForm();
     const onSubmit = async (data) => {
         console.log(data);
+        setLoading(true)
 
-        axios.post("https://sandy-hill-physio.nw.r.appspot.com/generate-patient-summary",
+        axios.post("http://localhost:8080/generate-patient-summary",
+        // axios.post("https://sandy-hill-physio.nw.r.appspot.com/generate-patient-summary",
         data,
         {
             responseType: 'arraybuffer',
@@ -20,14 +35,28 @@ export default function Registration() {
             }
         })
         .then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', 'file.pdf'); //or any other extension
-            document.body.appendChild(link);
-            link.click();
+            // const url = window.URL.createObjectURL(new Blob([response.data]));
+            // const link = document.createElement('a');
+            // link.href = url;
+            // link.setAttribute('download', 'file.pdf'); //or any other extension
+            // document.body.appendChild(link);
+            // link.click();
+            reset();
+            toast.success('Your data has been sent to us!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            setLoading(false)
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+            console.log(error)
+            setLoading(false)
+        });
     }
 
     
@@ -44,6 +73,17 @@ export default function Registration() {
                     <h1>Registration</h1>
                 </div>
             </section>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
             <section className="register-form">
                 <div className="main form">
                     <Container>
@@ -145,16 +185,16 @@ export default function Registration() {
                                     {/* Problem Progression */}
                                     <label>How is your problem progressing?</label>
                                     <div className="radios">
-                                        <label htmlFor="field-progression">
-                                            <input {...register("progression", {required:true})} type="radio" name="progression" value="worse" id="field-progression"/>
+                                        <label for="field-progression1">
+                                            <input {...register("progression", {required:true})} type="radio" name="progression" value="worse" id="field-progression1"/>
                                             Getting Worse
                                         </label>
-                                        <label htmlFor="field-progression">
-                                            <input {...register("progression", {required:true})} type="radio" name="progression" value="better" id="field-progression"/>
+                                        <label for="field-progression2">
+                                            <input {...register("progression", {required:true})} type="radio" name="progression" value="better" id="field-progression2"/>
                                             Getting Better
                                         </label>
-                                        <label htmlFor="field-progression">
-                                            <input {...register("progression", {required:true})} type="radio" name="progression" value="not changing" id="field-progression"/>
+                                        <label htmlFor="field-progression3">
+                                            <input {...register("progression", {required:true})} type="radio" name="progression" value="not changing" id="field-progression3"/>
                                             Not Changing
                                         </label>
                                         <span className="error">{errors.progression?.type === 'required' && "Please rate your progression"}</span>
@@ -164,20 +204,20 @@ export default function Registration() {
                                     {/* Pain Levels */}
                                     <label>If in pain, how would you describe it?</label>
                                     <div className="radios">
-                                        <label htmlFor="field-pain">
-                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="None" id="field-pain"/>
+                                        <label htmlFor="field-pain1">
+                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="None" id="field-pain1"/>
                                             None
                                         </label>
-                                        <label htmlFor="field-pain">
-                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="Mild" id="field-pain"/>
+                                        <label htmlFor="field-pain2">
+                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="Mild" id="field-pain2"/>
                                             Mild
                                         </label>
-                                        <label htmlFor="field-pain">
-                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="Moderate" id="field-pain"/>
+                                        <label htmlFor="field-pain3">
+                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="Moderate" id="field-pain3"/>
                                             Moderate
                                         </label>
-                                        <label htmlFor="field-pain">
-                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="Severe" id="field-pain"/>
+                                        <label htmlFor="field-pain4">
+                                            <input {...register("pain", {required:true})} type="radio" name="pain" value="Severe" id="field-pain4"/>
                                             Severe
                                         </label>
                                         <span className="error">{errors.pain?.type === 'required' && "Please rate your pain"}</span>
@@ -187,16 +227,16 @@ export default function Registration() {
                                     {/* Pain persistency */}
                                     <label>Is your pain constant (present all the time)?</label>
                                     <div className="radios">
-                                        <label htmlFor="field-pain_constant">
-                                            <input {...register("pain_constant", {required:true})} type="radio" name="pain_constant" value="N/A" id="field-pain_constant"/>
+                                        <label htmlFor="field-pain_constant1">
+                                            <input {...register("pain_constant", {required:true})} type="radio" name="pain_constant" value="N/A" id="field-pain_constant1"/>
                                             N/A
                                         </label>
-                                        <label htmlFor="field-pain_constant">
-                                            <input {...register("pain_constant", {required:true})} type="radio" name="pain_constant" value="Yes" id="field-pain_constant"/>
+                                        <label htmlFor="field-pain_constant2">
+                                            <input {...register("pain_constant", {required:true})} type="radio" name="pain_constant" value="Yes" id="field-pain_constant2"/>
                                             Yes
                                         </label>
-                                        <label htmlFor="field-pain_constant">
-                                            <input {...register("pain_constant", {required:true})} type="radio" name="pain_constant" value="No" id="field-pain_constant"/>
+                                        <label htmlFor="field-pain_constant3">
+                                            <input {...register("pain_constant", {required:true})} type="radio" name="pain_constant" value="No" id="field-pain_constant3"/>
                                             No
                                         </label>
                                         <span className="error">{errors.pain_constant?.type === 'required' && "Please fill in this field"}</span>
@@ -207,20 +247,20 @@ export default function Registration() {
 
                                     <label>Is your pain disturbing your sleep?</label>
                                     <div className="radios">
-                                        <label htmlFor="field-pain_sleep">
-                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="No" id="field-pain_sleep"/>
+                                        <label htmlFor="field-pain_sleep1">
+                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="No" id="field-pain_sleep1"/>
                                             No
                                         </label>
-                                        <label htmlFor="field-pain_sleep">
-                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="Yes, difficulty getting to sleep" id="field-pain_sleep"/>
+                                        <label htmlFor="field-pain_sleep2">
+                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="Yes, difficulty getting to sleep" id="field-pain_sleep2"/>
                                             Yes, difficulty getting to sleep
                                         </label>
-                                        <label htmlFor="field-pain_sleep">
-                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="Yes, woken up from sleep" id="field-pain_sleep"/>
+                                        <label htmlFor="field-pain_sleep3">
+                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="Yes, woken up from sleep" id="field-pain_sleep3"/>
                                             Yes, woken up from sleep
                                         </label>
-                                        <label htmlFor="field-pain_sleep">
-                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="Yes, unable to sleep at all" id="field-pain_sleep"/>
+                                        <label htmlFor="field-pain_sleep4">
+                                            <input {...register("pain_sleep", {required:true})} type="radio" name="pain_sleep" value="Yes, unable to sleep at all" id="field-pain_sleep4"/>
                                             Yes, unable to sleep at all
                                         </label>
                                         <span className="error">{errors.pain_sleep?.type === 'required' && "Please fill in this field"}</span>
@@ -288,16 +328,13 @@ export default function Registration() {
                                     </label>
                                     <span className="error">{errors.agreement?.type === 'required' && "Please agree to the terms"}</span>
                                     
-                                    
+                                    <div className="submitter">
+                                        <button type="submit" disabled={loading}>Send Data</button>
+                                        {loading && <LoadingSpinner/> }
+                                    </div>
                                 </Col>
                             </Row>
                         </Container>
-                        
-
-
-
-
-                        <button type="submit">Send Data</button>
                     </form>
                 </div>
             </section>
