@@ -24,8 +24,8 @@ export default function Registration() {
         console.log(data);
         setLoading(true)
 
-        axios.post("http://localhost:8080/generate-patient-summary",
-        // axios.post("https://sandy-hill-physio.nw.r.appspot.com/generate-patient-summary",
+        // axios.post("http://localhost:8080/generate-patient-summary",
+        axios.post("https://sandy-hill-physio.nw.r.appspot.com/generate-patient-summary",
         data,
         {
             responseType: 'arraybuffer',

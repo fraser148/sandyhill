@@ -26,4 +26,5 @@ yarn-error.log*
 /backend/node_modules
 /backend/.gcloudignore
 /backend/secret.json
-
+/backend/.env
+/backend/env_variables.yaml

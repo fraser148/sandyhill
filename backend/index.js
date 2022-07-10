@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(cors({
-    origin: 'http://localhost:3000'
+    origin: 'https://sandyhill.netlify.app'
 }));
 // app.use(cors({
 //     origin: 'https://623dac7353957f0008b22491--heuristic-wright-33c6aa.netlify.app'
@@ -54,8 +54,7 @@ app.post('/generate-patient-summary', async function(req, res) {
     .then(pdf => {
         let message = {
             from: process.env.EMAIL_USERNAME,
-            to: 'fjrennie1@outlook.com',
-            // to: 'helpme@sandyhillphysio.co.uk',
+            to: 'patient@sandyhillphysio.co.uk',
             subject: 'New Patient Info',
             text: 'That was easy!',
             attachments: [
